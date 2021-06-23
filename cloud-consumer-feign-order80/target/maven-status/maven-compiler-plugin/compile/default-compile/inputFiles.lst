@@ -1,0 +1,4 @@
+D:\springBootCloud\cloud-consumer-feign-order80\src\main\java\com\zmn\springcloud\config\FeignConfig.java
+D:\springBootCloud\cloud-consumer-feign-order80\src\main\java\com\zmn\springcloud\FeignMain80.java
+D:\springBootCloud\cloud-consumer-feign-order80\src\main\java\com\zmn\springcloud\service\PaymentFeignService.java
+D:\springBootCloud\cloud-consumer-feign-order80\src\main\java\com\zmn\springcloud\controller\OrderFeignController.java

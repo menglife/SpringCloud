@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zmn.springcloud.dao.TestDao">
+    <resultMap id="BaseResultMap" type="com.zmn.springcloud.entities.Test">
+        <id column="id" property="id" jdbcType="BIGINT"></id>
+        <result column="projectId" property="projectId" jdbcType="BIGINT"></result>
+        <result column="name" property="name" jdbcType="VARCHAR"></result>
+        <result column="age" property="age" jdbcType="BIGINT"></result>
+    </resultMap>
+    <sql id="Base_Column_List">
+      id,projectId,name ,age
+    </sql>
+    <insert id="addUser" parameterType="com.zmn.springcloud.entities.Test" useGeneratedKeys="true" keyColumn="id">
+        insert into t_user(projectId,name,age) values (#{projectId},#{name},#{age})
+    </insert>
+    <select id="getById"  resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"></include>
+        from t_user where id=#{id}
+    </select>
+<!--    返回map类型-->
+    <select id="getMap"  resultType="java.util.Map">
+        select <include refid="Base_Column_List"></include>
+        from t_user where id=#{id}
+    </select>
+<!--    供给返回集合中是map-->
+    <resultMap id="getlist" type="Map">
+        <id column="id" property="id" jdbcType="BIGINT"></id>
+        <result column="projectId" property="projectId" jdbcType="BIGINT"></result>
+        <result column="name" property="name" jdbcType="VARCHAR"></result>
+        <result column="age" property="age" jdbcType="BIGINT"></result>
+
+    </resultMap>
+    <select id="getListMap"  parameterType="java.util.List" resultMap="getlist">
+        select <include refid="Base_Column_List"></include>
+        from t_user where id in
+        <foreach collection="list" item="id" index="index"  open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+</mapper>

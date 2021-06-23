@@ -1,0 +1,39 @@
+server:
+  port: 5001
+spring:
+  application:
+    name: cloud-zuul  #微服务名称
+eureka:
+  client:
+    #表示是否将自己注册进Eurekaserver默认为true。
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetchRegistry: true
+    instance:
+      instance-id: cloud-zuul5001
+      prefer-ip-address: true  #访问路径可以显示地址
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+#查看zuul的监控界面（开发时为*，如果是上线不需要配置）
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    tags:
+      application: ${spring.application.name}
+zuul:
+  routes:
+    #      指定自定义服务方式一 Key(服务名) value(映射路径)
+    cloud-consumer-feign-order80: /cloud-consumer-feign-order80/**
+    #方式二
+    order-service:  #order-service这儿可以自定义名称
+      path: /order-service/**   #order-service这儿可以自定义映射路径
+      serviceid: cloud-consumer-feign-order80   #服务名
+
+
+#  基于服务名忽略服务 无法查看
+#  ignored-services: cloud-provider-payment800
+#  监控界面依然能查看，在访问的时候，404无法访问服务
+#  ignored-patterns: /**/cloud-provider-payment800/**
