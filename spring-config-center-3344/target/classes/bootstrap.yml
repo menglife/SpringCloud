@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: cloud-config-center #注册进Eureka服务器的微服务名
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/menglife/springcloud-config.git #GitHub上面的git仓库名字
+          #搜索目录
+          search-paths: config
+          #git的用户名
+          username: menglife
+          #git的密码
+          password: 1234567891qaz2wsx!@
+#          # 指定分支
+#          default-label: main
+      label: main
+eureka:
+  client:
+    #表示是否将自己注册进Eurekaserver默认为true。
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetchRegistry: true
+    instance:
+      instance-id: cloud-config-client-3355
+      prefer-ip-address: true  #访问路径可以显示地址
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
