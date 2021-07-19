@@ -1,0 +1,28 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center #注册进Eureka服务器的微服务名
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/menglife/springcloud-config.git #GitHub上面的git仓库名字
+          #搜索目录
+          search-paths: /**#
+          #git的用户名
+          username: menglife
+          #git的密码
+          password: 1234567891qaz2wsx!@
+          # 指定分支
+          default-label: main
+
+#服务注册到eureka地址
+eureka:
+  client:
+    instance:
+      instance-id: cloud-config-center3344
+      prefer-ip-address: true  #访问路径可以显示地址
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/

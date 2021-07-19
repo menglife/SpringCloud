@@ -18,6 +18,7 @@
         <module name="cloud-gateway9527" />
         <module name="cloud-consumer-huidufabu" />
         <module name="cloud-zuul" />
+        <module name="spring-config-center-3344" />
         <module name="cloud-consumer-buy6001" />
         <module name="cloud-consumer-order80" />
         <module name="cloud-consumer-feign-order80" />
