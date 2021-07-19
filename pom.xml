@@ -25,6 +25,7 @@
     <module>cloud-gateway9527</module>
     <module>cloud-video</module>
     <module>spring-config-center-3344</module>
+    <module>cloud-config-client-3355</module>
 
   </modules>
 

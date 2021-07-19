@@ -21,6 +21,7 @@
         <module name="spring-config-center-3344" />
         <module name="cloud-consumer-buy6001" />
         <module name="cloud-consumer-order80" />
+        <module name="cloud-config-client-3355" />
         <module name="cloud-consumer-feign-order80" />
         <module name="cloud-provider-hystrix-payment6001" />
       </profile>
