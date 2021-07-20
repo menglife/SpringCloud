@@ -16,6 +16,7 @@
         <module name="cloud-video" />
         <module name="cloud.provider-payment8002" />
         <module name="cloud-gateway9527" />
+        <module name="cloud-bus" />
         <module name="cloud-consumer-huidufabu" />
         <module name="cloud-zuul" />
         <module name="spring-config-center-3344" />
