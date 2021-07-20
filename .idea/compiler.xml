@@ -29,6 +29,7 @@
     <bytecodeTargetLevel>
       <module name="cloud-consumer-purchase6001" target="8" />
       <module name="cloud.provider-payment8002" target="8" />
+      <module name="sprincloud-bus-3366" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

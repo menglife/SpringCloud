@@ -1,2 +1,7 @@
+#当远程配置中没有这些信息才会使用该配置文件
 server:
   port: 3355
+spring:
+  application:
+    name: cloud-config-client3355
+#eureka配置信息放在远程git上
